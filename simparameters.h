@@ -29,7 +29,7 @@
 /******************************************************************************/
 
 #define FAST_RUN
-#define NO_CSV_OUTPUT
+//#define NO_CSV_OUTPUT
 
 #ifdef FAST_RUN
 

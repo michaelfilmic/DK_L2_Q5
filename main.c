@@ -90,6 +90,7 @@ main(void)
   fprintf(fp, ("Service Fraction ,"));
   fprintf(fp, ("Arrival rate,"));
   fprintf(fp, ("Mean Delay (msec),"));
+  fclose(fp);
   #endif
 
 
