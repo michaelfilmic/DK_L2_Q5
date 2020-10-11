@@ -68,20 +68,6 @@ schedule_end_packet_transmission_event_sw2(Simulation_Run_Ptr simulation_run,
   return simulation_run_schedule_event(simulation_run, event, event_time);
 }
 
-long
-schedule_end_packet_transmission_event_sw3(Simulation_Run_Ptr simulation_run,
-				       double event_time,
-				       Server_Ptr link)
-{
-  Event event;
-
-  //TRACE(printf("MM_debug in schedule_end_packet_transmission_event.\n");)
-  event.description = "SW3 Packet Xmt End";
-  event.function = end_packet_transmission_event_sw3;
-  event.attachment = (void *) link;
-
-  return simulation_run_schedule_event(simulation_run, event, event_time);
-}
 /******************************************************************************/
 
 /*

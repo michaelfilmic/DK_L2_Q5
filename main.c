@@ -129,14 +129,14 @@ main(void)
          */
         data.p12_cutoff = 0;
         
-        data.packet_arrival_rate = 750;
+        data.packet_arrival_rate = PACKET_ARRIVAL_RATE_LIST[i];
         data.blip_counter = 0;
         data.arrival_count = 0;
         data.number_of_packets_processed = 0;
         data.accumulated_delay = 0.0;
         data.random_seed = random_seed;
      
-        data.packet_arrival_rate_2 = 500;
+        data.packet_arrival_rate_2 = PACKET_ARRIVAL_RATE_VOICE;
         data.blip_counter_2 = 0;
         data.arrival_count_2 = 0;
         data.number_of_packets_processed_2 = 0;
