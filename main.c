@@ -165,9 +165,13 @@ main(void)
          * Schedule the initial packet arrival for the current clock time (= 0).
          */
         //data
+#ifndef no_data_event
         schedule_packet_arrival_event(simulation_run, simulation_run_get_time(simulation_run));
+#endif
         //voice
+#ifndef no_voice_event
         schedule_packet_arrival_event_sw2(simulation_run, simulation_run_get_time(simulation_run));
+#endif
 
         //printf("after schedule arrival event program time %f\n", clock());
         /* 
@@ -176,8 +180,12 @@ main(void)
 
         //while(data.number_of_packets_processed < RUNLENGTH) {
         while(
+#ifndef no_data_event
                 data.number_of_packets_processed < RUNLENGTH ||
+#endif
+#ifndef no_voice_event
                 data.number_of_packets_processed_2 < RUNLENGTH ||
+#endif
                 0 //dummy var to keep format
                 ) {
           //printf("MM_debug while loop program time \n");

@@ -28,6 +28,8 @@
 #ifndef _TRACE_H_
 #define _TRACE_H_
 
+//#define no_data_event
+//#define no_voice_event
 /**********************************************************************/
 
 #define DO(x) x

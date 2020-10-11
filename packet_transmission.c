@@ -199,6 +199,9 @@ start_transmission_on_link_sw2(Simulation_Run_Ptr simulation_run,
 double get_packet_transmission_time(void)
 {
   return (exponential_generator(PACKET_XMT_TIME));
+  //return (1/(exponential_generator((double) 1/PACKET_XMT_TIME)));
+  //return ((exponential_generator((double) 1/PACKET_XMT_TIME)));
+
 }
 
 double get_packet_transmission_time_sw2(void)
