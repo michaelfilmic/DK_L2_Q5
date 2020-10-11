@@ -56,7 +56,7 @@ output_progress_msg_to_screen(Simulation_Run_Ptr simulation_run)
 
     printf("%3.0f%% ", percentage_done);
 
-    printf("SW1 Successfully Xmtted Pkts  = %ld (Arrived Pkts = %ld) \n", 
+    printf("data Successfully Xmtted Pkts  = %ld (Arrived Pkts = %ld) \n", 
 	   data->number_of_packets_processed, data->arrival_count);
 
     fflush(stdout);
@@ -85,7 +85,7 @@ output_progress_msg_to_screen_sw2(Simulation_Run_Ptr simulation_run)
 
     printf("%3.0f%% ", percentage_done);
 
-    printf("SW2 Successfully Xmtted Pkts  = %ld (Arrived Pkts = %ld) \n", 
+    printf("voice Successfully Xmtted Pkts  = %ld (Arrived Pkts = %ld) \n", 
 	   data->number_of_packets_processed_2, data->arrival_count_2);
 
     fflush(stdout);
@@ -136,7 +136,7 @@ output_results(Simulation_Run_Ptr simulation_run)
   data = (Simulation_Run_Data_Ptr) simulation_run_data(simulation_run);
 
   printf("\n");
-  printf("SW1: \n");
+  printf("data: \n");
   printf("Random Seed = %d \n", data->random_seed);
   printf("Packet arrival count = %ld \n", data->arrival_count);
 
@@ -198,7 +198,7 @@ output_results_sw2(Simulation_Run_Ptr simulation_run)
   data = (Simulation_Run_Data_Ptr) simulation_run_data(simulation_run);
 
   printf("\n");
-  printf("SW2: \n");
+  printf("voice: \n");
   printf("Random Seed = %d \n", data->random_seed_2);
   printf("Packet arrival count = %ld \n", data->arrival_count_2);
 

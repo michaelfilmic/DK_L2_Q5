@@ -30,39 +30,20 @@
 
 #define FAST_RUN
 #define NO_CSV_OUTPUT
-//#define D_D_1_system
 
 #ifdef FAST_RUN
 
-#define P12_CUTOFF 0.50 
-
-#ifdef D_D_1_system
-#define PACKET_ARRIVAL_RATE 4  /* packets per second */
-#define PACKET_LENGTH 10 /* bits */
-#define LINK_BIT_RATE 250 /* bits per second */
-            //#define RUNLENGTH 10 /* packets */
+#define PACKET_ARRIVAL_RATE 400 
+#define PACKET_ARRIVAL_RATE_VOICE 50 
+#define LINK_BIT_RATE 1E6 
 #define RUNLENGTH 3 /* packets */
-
-            /* Comma separated list of random seeds to run. */
-#define RANDOM_SEED_LIST 400050636
-#else
-
-#define PACKET_ARRIVAL_RATE 4  //in Q4 not used
-#define PACKET_LENGTH 1000 /* bits */
-#define LINK_BIT_RATE 250 //in Q4 not used
-            //#define RUNLENGTH 10 /* packets */
-#define RUNLENGTH 3 /* packets */
-
             /* Comma separated list of random seeds to run. */
 #define RANDOM_SEED_LIST 400050636
 
-#endif //D_D_1_system
 
 #else
 
-#define P12_CUTOFF 0.23, 0.31 
 #define PACKET_ARRIVAL_RATE 400, 500, 600 /* packets per second */
-#define PACKET_LENGTH 500 /* bits */
 #define LINK_BIT_RATE 1e6 /* bits per second */
 #define RUNLENGTH 10e6 /* packets */
 
@@ -71,21 +52,12 @@
 
 #endif //FAST_RUN
 
-#ifdef D_D_1_system
 
-#define PACKET_XMT_TIME 0.002
-#define PACKET_XMT_TIME_SW2 0.003
-#define PACKET_XMT_TIME_SW3 0.003
+
+#define PACKET_XMT_TIME ((double) 40E-3 )
+#define PACKET_XMT_TIME_VOICE ((double) (20*64 + 62*8) /LINK_BIT_RATE)
 #define BLIPRATE (RUNLENGTH/1000)
 
-#else
-
-#define PACKET_XMT_TIME ((double) PACKET_LENGTH/2E6)//((double) PACKET_LENGTH/LINK_BIT_RATE)
-#define PACKET_XMT_TIME_SW2 ((double) PACKET_LENGTH/1E6)//((double) PACKET_LENGTH/LINK_BIT_RATE)
-#define PACKET_XMT_TIME_SW3 ((double) PACKET_LENGTH/1E6)//((double) PACKET_LENGTH/LINK_BIT_RATE)
-#define BLIPRATE (RUNLENGTH/1000)
-
-#endif //D_D_1_system
 
 /******************************************************************************/
 

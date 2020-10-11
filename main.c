@@ -59,7 +59,6 @@ main(void)
 
   unsigned RANDOM_SEEDS[] = {RANDOM_SEED_LIST, 0};
   double PACKET_ARRIVAL_RATE_LIST[] = {PACKET_ARRIVAL_RATE};
-  double P12_CUTOFF_LIST[] = {P12_CUTOFF};
   unsigned random_seed;
 
   int size_rand_seed = (sizeof(RANDOM_SEEDS)/sizeof(unsigned)) - 1;
@@ -94,7 +93,7 @@ main(void)
   #endif
 
 
-  for (int i = 0; i < (sizeof(P12_CUTOFF_LIST)/sizeof(double)); i ++)
+  for (int i = 0; i < (sizeof(PACKET_ARRIVAL_RATE_LIST)/sizeof(double)); i ++)
   {
 
       j = 0;
@@ -128,7 +127,7 @@ main(void)
         /* 
          * Initialize the simulation_run data variables, declared in main.h.
          */
-        data.p12_cutoff = P12_CUTOFF_LIST[i];
+        data.p12_cutoff = 0;
         
         data.packet_arrival_rate = 750;
         data.blip_counter = 0;
@@ -165,8 +164,9 @@ main(void)
         /* 
          * Schedule the initial packet arrival for the current clock time (= 0).
          */
-
+        //data
         schedule_packet_arrival_event(simulation_run, simulation_run_get_time(simulation_run));
+        //voice
         schedule_packet_arrival_event_sw2(simulation_run, simulation_run_get_time(simulation_run));
 
         //printf("after schedule arrival event program time %f\n", clock());
@@ -274,7 +274,7 @@ main(void)
       double xmtted_fraction_2;
       double xmtted_fraction_3;
       printf("\n");
-      printf("i loop var = %f \n", P12_CUTOFF_LIST[i]);
+      printf("i loop var = %f \n", PACKET_ARRIVAL_RATE_LIST[i]);
       printf("\nsw1 \n");
       printf("avg Random Seed = %d \n", for_avg_acc.random_seed);
       printf("avg Packet arrival count = %ld \n", for_avg_acc.arrival_count);
