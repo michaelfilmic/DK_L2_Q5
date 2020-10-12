@@ -36,17 +36,18 @@
 #define PACKET_ARRIVAL_RATE_VOICE 50 
 #ifdef FAST_RUN
 
-#define PACKET_ARRIVAL_RATE 10 
-#define LINK_BIT_RATE 1E6 
-#define RUNLENGTH 3 /* packets */
-            /* Comma separated list of random seeds to run. */
-#define RANDOM_SEED_LIST 400050636
+#define PACKET_ARRIVAL_RATE 1, 5  /* packets per second */
+#define LINK_BIT_RATE 1e6 /* bits per second */
+#define RUNLENGTH 1e3 /* packets */
+
+/* Comma separated list of random seeds to run. */
+#define RANDOM_SEED_LIST 400050636 
 
 #else
 
-#define PACKET_ARRIVAL_RATE 20 /* packets per second */
+#define PACKET_ARRIVAL_RATE 1, 5, 10, 15, 18, 20, 21 ,23  /* packets per second */
 #define LINK_BIT_RATE 1e6 /* bits per second */
-#define RUNLENGTH 1e2 /* packets */
+#define RUNLENGTH 1e3 /* packets */
 
 /* Comma separated list of random seeds to run. */
 #define RANDOM_SEED_LIST 400050636, 400099173, 225 
