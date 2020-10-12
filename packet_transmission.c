@@ -45,7 +45,6 @@ schedule_end_packet_transmission_event(Simulation_Run_Ptr simulation_run,
 {
   Event event;
 
-  //TRACE(printf("MM_debug in schedule_end_packet_transmission_event.\n");)
   event.description = "data Packet Xmt End";
   event.function = end_packet_transmission_event;
   event.attachment = (void *) link;
@@ -60,7 +59,6 @@ schedule_end_packet_transmission_event_sw2(Simulation_Run_Ptr simulation_run,
 {
   Event event;
 
-  //TRACE(printf("MM_debug in schedule_end_packet_transmission_event.\n");)
   event.description = "voice Packet Xmt End";
   event.function = end_packet_transmission_event_sw2;
   event.attachment = (void *) link;
@@ -147,8 +145,8 @@ end_packet_transmission_event_sw2(Simulation_Run_Ptr simulation_run, void * link
    * out and transmit it immediately.
   */
 
-  if(fifoqueue_size(data->buffer) > 0) {
-    next_packet = (Packet_Ptr) fifoqueue_get(data->buffer);
+  if(fifoqueue_size(data->buffer_2) > 0) {
+    next_packet = (Packet_Ptr) fifoqueue_get(data->buffer_2);
     start_transmission_on_link_sw2(simulation_run, next_packet, link);
   }
 }
