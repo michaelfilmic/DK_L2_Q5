@@ -36,7 +36,7 @@
 #define PACKET_ARRIVAL_RATE_VOICE 50 
 #ifdef FAST_RUN
 
-#define PACKET_ARRIVAL_RATE 1, 5  /* packets per second */
+#define PACKET_ARRIVAL_RATE 10  /* packets per second */
 #define LINK_BIT_RATE 1e6 /* bits per second */
 #define RUNLENGTH 1e3 /* packets */
 

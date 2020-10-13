@@ -87,6 +87,7 @@ packet_arrival_event(Simulation_Run_Ptr simulation_run, void * ptr)
   new_packet->arrive_time = simulation_run_get_time(simulation_run);
   new_packet->service_time = get_packet_transmission_time();
   new_packet->status = WAITING;
+  new_packet->source_id = 1;
 
   /* 
    * Start transmission if the data link is free. Otherwise put the packet into
@@ -123,6 +124,7 @@ packet_arrival_event_sw2(Simulation_Run_Ptr simulation_run, void * ptr)
   //printf("service time  %f\n", get_packet_transmission_time_sw2());
 
   new_packet->status = WAITING;
+  new_packet->source_id = 2;
 
   /* 
    * Start transmission if the data link is free. Otherwise put the packet into
@@ -130,9 +132,9 @@ packet_arrival_event_sw2(Simulation_Run_Ptr simulation_run, void * ptr)
    */
 
   if(server_state(data->link) == BUSY) {
-    fifoqueue_put(data->buffer_2, (void*) new_packet);
+    fifoqueue_put(data->buffer, (void*) new_packet);
   } else {
-    start_transmission_on_link_sw2(simulation_run, new_packet, data->link);
+    start_transmission_on_link(simulation_run, new_packet, data->link);
   }
 
   /* 
